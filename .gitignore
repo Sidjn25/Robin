@@ -1,0 +1,7 @@
+# Node, React, and environment files
+node_modules/
+build/
+.env
+.DS_Store
+.idea/
+.vscode/
