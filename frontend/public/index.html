@@ -4,9 +4,41 @@
     <meta charset="utf-8" />
     <title>Robin AI Insurance Agent</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../src/style.css">
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <header>
+      <img src="company-logo.png" alt="Company Logo" height="50">
+      <h1 id="welcome-message">Welcome to Robin AI Insurance Agent</h1>
+      <select id="language-select" onchange="setLanguage()"></select>
+    </header>
+    <aside>
+      <button onclick="showLogin()">Login/Register</button>
+      <button onclick="getInsuranceInfo()">Insurance Types</button>
+      <button onclick="comparePlans()">Compare Plans</button>
+      <button onclick="calculatePremium()">Calculate Premium</button>
+      <button onclick="recommendPlan()">Recommend Plan</button>
+      <button onclick="requestCall()">Request a Call</button>
+      <button onclick="startVoice()">Start Voice</button>
+      <button id="payment-btn" onclick="makePayment()" style="display:none;">Make Payment</button>
+    </aside>
+    <main>
+      <div id="conversation"></div>
+      <input id="user-input" type="text" placeholder="Type your message..." />
+      <button onclick="sendMessage()">Send</button>
+    </main>
+    <section id="feedback-area" style="display:none;">
+      <label>Rate your experience: 
+        <select id="rating">
+          <option value="5">Excellent</option>
+          <option value="4">Good</option>
+          <option value="3">Average</option>
+          <option value="2">Poor</option>
+        </select>
+      </label>
+      <textarea id="feedback-text" placeholder="Leave feedback"></textarea>
+      <button onclick="sendFeedback()">Submit Feedback</button>
+    </section>
+    <script src="../src/main.js"></script>
   </body>
 </html>
