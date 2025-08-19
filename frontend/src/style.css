@@ -1,40 +1,118 @@
 body {
   font-family: Arial, sans-serif;
-  padding: 30px;
   background: #f4f6fc;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+header {
+  background: #e8f5e9;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 2px solid #388e3c;
+}
+header img {
+  vertical-align: middle;
 }
 h1, h2, h3 {
   color: #1b5e20;
+  margin: 0;
+}
+aside {
+  background: #e8f5e9;
+  padding: 20px;
+  width: 220px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+main {
+  margin-left: 240px;
+  padding: 30px;
+  flex: 1;
+}
+#conversation {
+  background: #fff;
+  border-radius: 6px;
+  min-height: 200px;
+  padding: 16px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.user-message {
+  background: #e0f7fa;
+  color: #01579b;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 6px;
+  max-width: 85%;
+}
+.ai-message {
+  background: #e8f5e9;
+  color: #1b5e20;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 6px;
+  max-width: 85%;
+  margin-left: auto;
 }
 label {
   font-weight: bold;
 }
-select, button {
-  margin: 8px;
+select, button, input, textarea {
+  margin: 8px 0;
   padding: 8px 16px;
   border-radius: 4px;
   border: 1px solid #388e3c;
   font-size: 16px;
+  outline: none;
 }
 button {
   background: #388e3c;
   color: #fff;
   border: none;
   cursor: pointer;
+  transition: background 0.2s;
 }
 button:hover {
   background: #2e7031;
 }
-div[style*="background: #e8f5e9"] {
-  margin-top: 20px;
-  background: #e8f5e9;
-  padding: 15px;
+input[type="text"] {
+  width: 70%;
+  display: inline-block;
+  margin-right: 6px;
+}
+textarea {
+  width: 100%;
+  min-height: 48px;
+  resize: vertical;
+}
+#feedback-area {
+  background: #fff;
+  border: 1px solid #388e3c;
   border-radius: 6px;
-  font-size: 16px;
-  color: #1b5e20;
-  white-space: pre-line;
+  padding: 18px;
+  margin-top: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 hr {
   margin: 24px 0;
   border-top: 1px solid #388e3c;
+}
+@media (max-width: 800px) {
+  aside, main {
+    margin-left: 0;
+    width: 100%;
+    padding: 12px;
+  }
+  body {
+    flex-direction: column;
+  }
 }
