@@ -5,11 +5,17 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 router.post('/', async (req, res) => {
   const { amount } = req.body;
-  const paymentIntent = await stripe.paymentIntents.create({
-    amount: amount * 100, // converts to paise/cents
-    currency: "inr"
-  });
-  res.json({ clientSecret: paymentIntent.client_secret });
+  if (!amount || amount <= 0) return res.status(400).json({ error: "Invalid amount" });
+
+  try {
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: Math.round(amount * 100), // Converts to paise/cents
+      currency: "inr"
+    });
+    res.json({ clientSecret: paymentIntent.client_secret });
+  } catch (err) {
+    res.status(500).json({ error: "Payment failed" });
+  }
 });
 
 module.exports = router;
