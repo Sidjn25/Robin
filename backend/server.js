@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 
 // Connect to CosmosDB (MongoDB API)
-mongoose.connect(process.env.COSMOSDB_CONN_STRING, {
+mongoose.connect(process.env.DB_CONNECTION_STRING, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
