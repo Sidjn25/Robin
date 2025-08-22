@@ -17,7 +17,7 @@ function showLogin() {
 }
 
 function getInsuranceInfo() {
-  fetch('https://robinbackend.azurewebsites.net/api/insurance')
+  fetch('https://robinbackend-bzgkfnhndvcmdee3.eastus2-01.azurewebsites.net/api/insurance')
     .then(res => res.json())
     .then(data => {
       addMessage("ai", "Insurance Types:<br>" + data.products.map(p => `<b>${p.type}:</b> ${p.description}`).join('<br>'));
@@ -27,7 +27,7 @@ function getInsuranceInfo() {
 function comparePlans() {
   const planA = prompt("Enter first plan to compare:");
   const planB = prompt("Enter second plan to compare:");
-  fetch('/api/compare', {
+  fetch('https://robinbackend-bzgkfnhndvcmdee3.eastus2-01.azurewebsites.net/api/compare', {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ planA, planB })
@@ -42,7 +42,7 @@ function calculatePremium() {
   const age = prompt("Enter your age:");
   const coverage = prompt("Enter coverage amount:");
   const type = prompt("Enter insurance type:");
-  fetch('/api/calculate', {
+  fetch('https://robinbackend-bzgkfnhndvcmdee3.eastus2-01.azurewebsites.net/api/calculate', {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ age, coverage, type })
@@ -58,7 +58,7 @@ function calculatePremium() {
 function recommendPlan() {
   const age = prompt("Enter your age:");
   const budget = prompt("Enter your budget:");
-  fetch('/api/recommend', {
+  fetch('https://robinbackend-bzgkfnhndvcmdee3.eastus2-01.azurewebsites.net/api/recommend', {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ age, budget })
@@ -71,7 +71,7 @@ function recommendPlan() {
 
 function requestCall() {
   const phone = prompt("Enter your phone number for call:");
-  fetch('/api/request-call', {
+  fetch('https://robinbackend-bzgkfnhndvcmdee3.eastus2-01.azurewebsites.net/api/request-call', {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ phone })
@@ -83,7 +83,7 @@ function requestCall() {
 }
 
 function makePayment() {
-  fetch('/api/payment', {
+  fetch('https://robinbackend-bzgkfnhndvcmdee3.eastus2-01.azurewebsites.net/api/payment', {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ amount: paymentAmount })
@@ -98,7 +98,7 @@ function sendMessage() {
   const input = document.getElementById('user-input').value;
   if (!input) return;
   addMessage("user", input);
-  fetch('/api/chat', {
+  fetch('https://robinbackend-bzgkfnhndvcmdee3.eastus2-01.azurewebsites.net/api/chat', {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message: input, lang: selectedLanguage })
@@ -132,7 +132,7 @@ function askForFeedback() {
 function sendFeedback() {
   const rating = document.getElementById('rating').value;
   const feedback = document.getElementById('feedback-text').value;
-  fetch('/api/feedback', {
+  fetch('https://robinbackend-bzgkfnhndvcmdee3.eastus2-01.azurewebsites.net/api/feedback', {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ rating, feedback })
@@ -145,7 +145,7 @@ function sendFeedback() {
 }
 
 window.onload = function() {
-  fetch('/api/languages')
+  fetch('https://robinbackend-bzgkfnhndvcmdee3.eastus2-01.azurewebsites.net/api/languages')
     .then(res => res.json())
     .then(data => {
       const sel = document.getElementById('language-select');
