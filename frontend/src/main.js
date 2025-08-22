@@ -17,7 +17,7 @@ function showLogin() {
 }
 
 function getInsuranceInfo() {
-  fetch('/api/insurance')
+  fetch('https://robinbackend.azurewebsites.net/api/insurance')
     .then(res => res.json())
     .then(data => {
       addMessage("ai", "Insurance Types:<br>" + data.products.map(p => `<b>${p.type}:</b> ${p.description}`).join('<br>'));
