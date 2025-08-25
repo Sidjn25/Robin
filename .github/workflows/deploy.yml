@@ -32,5 +32,5 @@ jobs:
       with:
         app-name: robinbackend
         slot-name: production
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4DD120EA9F9243B79A24633922846950 }}
         package: backend
